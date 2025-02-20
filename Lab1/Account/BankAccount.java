@@ -8,74 +8,72 @@
 import java.util.Scanner;
 
 public class BankAccount {
-    private double balance;
-    private double interestRate;
-
-    public BankAccount() {
-        this(0.0, 0.0);
-    }
-
-    public BankAccount(double balance, double interestRate) {
-        this.balance = Math.max(balance, 0.0);
-        this.interestRate = Math.max(interestRate, 0.0);
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public double getInterestRate() {
-        return interestRate;
-    }
-
-    public void setBalance(double amount) {
-        if (amount >= 0) {
-            this.balance = amount;
-        } else {
-            throw new IllegalArgumentException("Balance cannot be negative.");
-        }
-    }
-
-    public void setInterestRate(double rate) {
-        if (rate >= 0) {
-            this.interestRate = rate;
-        } else {
-            throw new IllegalArgumentException("Interest rate cannot be negative.");
-        }
-    }
-
-    public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-        } else {
-            throw new IllegalArgumentException("Deposit amount must be positive.");
-        }
-    }
-
-    public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-        } else {
-            throw new IllegalArgumentException("Withdrawal amount must be positive and not exceed the balance.");
-        }
-    }
-
-    public void accrueInterest(int months) {
-        if (months < 0) {
-            throw new IllegalArgumentException("Number of months cannot be negative.");
-        }
-
-        double monthlyRate = interestRate / 12;
-        for (int i = 0; i < months; i++) {
-            balance += (balance * monthlyRate);
-        }
-    }
-
     public static void main(String[] args) {
-        BankAccount account = new BankAccount(1000, 0.05); // $1000 balance, 5% annual interest
-        account.deposit(500);
-        account.withdraw(200);
-        account.accrueInterest(6);  // Apply interest for 6 months
-        System.out.printf("Balance after interest: $%.2f%n", account.getBalance());
+        Scanner sc = new Scanner(System.in);
+        Account acct = new Account(1000, 0.05); // Initial balance: $1000, 5% interest rate
+
+        int choice = 99;
+
+        System.out.println("Welcome to Town Bank\n");
+
+        while (choice != 6) {
+            choice = menu(sc);
+            switch (choice) {
+                case 1:
+                    acct.displayBalance();
+                    break;
+                case 2:
+                    acct.displayInterestRate();
+                    break;
+                case 3:
+                    System.out.print("Enter deposit amount: ");
+                    double depositAmount = sc.nextDouble();
+                    acct.deposit(depositAmount);
+                    break;
+                case 4:
+                    System.out.print("Enter withdrawal amount: ");
+                    double withdrawAmount = sc.nextDouble();
+                    acct.withdraw(withdrawAmount);
+                    break;
+                case 5:
+                    System.out.print("Enter number of months for interest accrual: ");
+                    int months = sc.nextInt();
+                    acct.accrueInterest(months);
+                    break;
+                case 6:
+                    System.out.println("!!Thank you and Good Bye!!\n");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.\n");
+            }
+        }
+        sc.close();
+    }
+
+    public static int menu(Scanner sc) {
+        int choice = 99;
+
+        System.out.println("Enter the number for the Operation you wish to perform:");
+        System.out.println("1. Check Balance\n" +
+                           "2. Check Current Rate\n" +
+                           "3. Deposit to Account\n" +
+                           "4. Withdraw from Account\n" +
+                           "5. Project Interest Accrual\n" +
+                           "6. Exit Program\n");
+
+        System.out.print("Enter Choice: ");
+        try {
+            choice = sc.nextInt();
+            while (choice < 1 || choice > 6) {
+                System.out.print("Please enter a valid menu choice: ");
+                choice = sc.nextInt();
+            }
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("!!Non-integer entered!! Please enter a valid number.");
+            sc.next();
+            choice = 99;
+        }
+        System.out.println(); // prints blank line
+        return choice;
     }
 }
