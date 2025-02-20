@@ -1,6 +1,6 @@
 /* CS 282 Intermediate Java  Spring 2023
  * Cuyamaca College
- * Jaime  Sanchez
+ * Muhsin Abdirahman
  * Lab 1 
  * 
  */
