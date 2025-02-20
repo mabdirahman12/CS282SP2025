@@ -1,3 +1,12 @@
+/* 
+ * CS 282 Intermediate Java Spring 2023
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Lab 1 
+ * This class represents a bank account that keeps track of a balance and 
+ * an annual interest rate. It provides methods for deposits, withdrawals, 
+ * interest accrual, and retrieving account details.
+ */
 
 public class Account {
     private double balance;
