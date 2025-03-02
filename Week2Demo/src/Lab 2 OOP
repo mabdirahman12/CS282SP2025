@@ -1,3 +1,12 @@
+/* 
+ * CS 282 Intermediate Java Spring 2023
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Lab 2 - OOP
+The code defines a Polygon interface with area() and perimeter() methods and implements various polygon classes, including triangles, quadrilaterals, and regular polygons.
+It also provides a user interface for creating polygons, inputting dimensions, and displaying their area and perimeter, with an additional feature to check polygon similarity.
+ */
+
 import java.util.*;
 
 // Polygon interface
