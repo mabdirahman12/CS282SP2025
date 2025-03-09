@@ -1,3 +1,12 @@
+/* 
+ * CS 282 Intermediate Java Spring 2025
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Lab 3 - Cipher
+ * This program implements a keyword-based variation of the Caesar Cipher.
+ * Users can input a keyword to generate a custom cipher alphabet, 
+ * encrypt and decrypt messages, and interact with a simple text-based menu.
+ */
 
 import java.util.Scanner;
 
