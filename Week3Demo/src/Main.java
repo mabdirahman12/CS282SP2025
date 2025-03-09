@@ -1,62 +1,53 @@
 
-public class Main {
+import java.util.Scanner;
 
-	public static void main(String[] args) 
-	{
-		/*
-		ArrayList AList = new ArrayList();
-		
-		AList.add(54);
-		AList.add(3);
-		AList.add(11);
-		AList.add(5);
-		AList.add(77);
-		AList.add(100);
-		AList.add(56);
-		AList.add(23);
-		AList.add(43);
-		AList.add(19);
-		AList.add(32);
-		AList.add(14);
-		AList.add(67);
-		AList.add(65);
-		AList.add(87);
-		AList.add(98);
-		
-		//System.out.println("The number is " + AList.getValue(9));
-		
-		for(int i = 0; i<AList.getSize();i++)
-		{
-			System.out.println(AList.getValue(i));
-		}
-		
-		System.out.println("------------------");
-		
-		AList.removeAtIndex(5);
-		for(int i = 0; i<AList.getSize();i++)
-		{
-			System.out.println(AList.getValue(i));
-		}
-		*/
-		
-		LinkedList LL= new LinkedList();
-		
-		LL.Add(5);
-		LL.Add(25);
-		LL.Add(3);
-		LL.Add(66);
-		LL.Add(67);
-		LL.Add(98);
-		LL.Add(56);
-		LL.Add(45);
-		
-		LL.DisplayList();
-		
-		LL.removeValue(5);
-		System.out.println("------------------");
-		
-		LL.DisplayList();
+public class KeywordCaesarCipher {
+    private static String createCipher(String keyword) {
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder cipher = new StringBuilder();
+        for (char ch : (keyword + alphabet).toCharArray()) {
+            if (cipher.indexOf(String.valueOf(ch)) == -1) {
+                cipher.append(ch);
+            }
+        }
+        return cipher.toString();
+    }
 
-	}
+    private static String convert(String message, String from, String to) {
+        StringBuilder result = new StringBuilder();
+        for (char ch : message.toUpperCase().toCharArray()) {
+            int index = from.indexOf(ch);
+            result.append(index != -1 ? to.charAt(index) : ch);
+        }
+        return result.toString();
+    }
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String keyword = "TOY";
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String cipher = createCipher(keyword);
+        
+        while (true) {
+            System.out.println("\n1. Set Keyword\n2. Encrypt\n3. Decrypt\n9. Quit");
+            String choice = scanner.nextLine().trim();
+            
+            if (choice.equals("1")) {
+                System.out.print("New keyword: ");
+                keyword = scanner.nextLine().trim().toUpperCase();
+                cipher = createCipher(keyword);
+            } else if (choice.equals("2")) {
+                System.out.print("Message: ");
+                System.out.println("Encrypted: " + convert(scanner.nextLine(), alphabet, cipher));
+            } else if (choice.equals("3")) {
+                System.out.print("Message: ");
+                System.out.println("Decrypted: " + convert(scanner.nextLine(), cipher, alphabet));
+            } else if (choice.equals("9")) {
+                break;
+            } else {
+                System.out.println("Invalid choice.");
+            }
+        }
+        scanner.close();
+    }
 }
