@@ -1,4 +1,14 @@
-
+/*
+ * CS 282 Intermediate Java Spring 2025
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Lab 4 - Sum of Digits
+ * This program implements a recursive function to compute the sum of digits 
+ * of a given integer. The program defines a function `sumOfDigits` that 
+ * takes a single integer `n` and returns the sum of its digits using 
+ * recursion. The function is then tested with several values of `n` 
+ * to verify its correctness.
+ */
 
 public class Main {
 
