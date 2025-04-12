@@ -1,8 +1,10 @@
-/* CS 282 Intermediate Java  Spring 2023
+/* CS 282 Intermediate Java  Spring 2025
  * Cuyamaca College
  * Muhsin Abdirahman
  * Lab 1 
- * 
+ * The program uses an Account class (not shown here) to manage account operations.
+ * It features an interactive console menu and handles input validation for a 
+ * smoother user experience.
  */
 
 import java.util.Scanner;
