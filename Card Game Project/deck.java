@@ -1,4 +1,11 @@
-
+/* 
+ * CS 282 Intermediate Java Spring 2025
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Card Game Project
+ * This program defines the Deck class for the War card game.
+ * It creates a standard 52-card deck, shuffles it, and deals cards.
+ */
 import java.util.*;
 
 public final class Deck {
