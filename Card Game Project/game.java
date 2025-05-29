@@ -1,4 +1,12 @@
-
+/* 
+ * CS 282 Intermediate Java Spring 2025
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Card Game Project
+ * This program defines the Game class that controls the game logic
+ * for the War card game. It includes the game loop, round handling,
+ * and war logic.
+ */
 import java.util.*;
 
 public class Game {
