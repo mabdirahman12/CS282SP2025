@@ -1,4 +1,11 @@
-
+/* 
+ * CS 282 Intermediate Java Spring 2025
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Card Game Project
+ * This program defines the Player class for the War card game.
+ * Each player maintains a queue of cards representing their hand.
+ */
 import java.util.*;
 
 public class Player {
