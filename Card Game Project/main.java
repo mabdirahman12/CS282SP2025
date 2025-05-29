@@ -1,4 +1,11 @@
-
+/* 
+ * CS 282 Intermediate Java Spring 2025
+ * Cuyamaca College
+ * Muhsin Abdirahman
+ * Card Game Project
+ * This program contains the main method and user interface menu.
+ * It allows running the War game, viewing rules, or testing components.
+ */
 import java.util.Scanner;
 
 public class Main {
